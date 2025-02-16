@@ -22,7 +22,7 @@ const NewSelectMenu = (props: {
     minWidth?: number
 }) => {
     const containerRef = useDetectClickOutside({ onTriggered: () => setShowMenu(false) });
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     // Menu States
     const [showMenu, setShowMenu] = useState(false);
@@ -83,7 +83,7 @@ const NewSelectMenu = (props: {
                             </label>                
                         ) : 
                         <NoneFound
-                            iconFont={props.iconFont}
+                            iconFont="block"
                             text={`No ${props.resourceNamePlural} found`}
                             small
                         />

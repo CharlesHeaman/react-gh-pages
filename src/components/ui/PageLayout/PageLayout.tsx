@@ -1,41 +1,14 @@
-import Cookies from "js-cookie";
-import { ReactNode, useEffect, useState } from "react";
-import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
-import { routes } from "../../../routes/routes";
-import { DepartmentResponseData } from "../../../types/department.types";
-import getAPI from "../../../utils/getAPI";
+import { ReactNode, useState } from "react";
+import { useLocation } from "react-router-dom";
 import SideNav from "../SideNav/SideNav";
 import Header from "../Structure/Header/Header";
-import Breadcrumb from "./Breadcrumb";
 import styles from "./PageLayout.module.css";
 
 const PageLayout = (props: {
     children: ReactNode,
 }) => {
-    const navigate = useNavigate();
     const location = useLocation();
-    const [isDepartmentLoading, setIsDepartmentLoading] = useState(false);
-    const [department, setDepartment] = useState<DepartmentResponseData>();
     const [isNavOpen, setIsNavOpen] = useState(false);
-
-    const currentDepartmentID = Cookies.get("department_id");
-
-    useEffect(() => {
-        !(location.pathname === "/login") && currentDepartmentID && getDepartment(parseInt(currentDepartmentID));
-    }, [currentDepartmentID]);
-
-    useEffect(() => {
-        if (location.pathname === "/" && department) {
-            navigate(department.data.name);
-        }
-    }, [location.pathname]);
-
-    const getDepartment = (departmentID: number) => {
-        getAPI(`departments/${departmentID}`, {}, (response: any) => {
-            const departmentData: DepartmentResponseData = response.data;
-            setDepartment(departmentData);
-        }, setIsDepartmentLoading);
-    }
 
     return (
         !(location.pathname === "/login" || location.pathname.endsWith("/generate")) ? <div className={styles['main-wrapper']}>
@@ -66,8 +39,6 @@ const PageLayout = (props: {
             `}>
                 <SideNav
                     isOpen={isNavOpen}
-                    department={department}
-                    setDepartment={setDepartment}
                 />
                 <div className={styles['body-content']}>
                     {props.children}

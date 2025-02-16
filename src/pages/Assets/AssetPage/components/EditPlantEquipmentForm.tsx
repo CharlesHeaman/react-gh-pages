@@ -44,6 +44,11 @@ const EditPlantEquipmentForm = (props: {
         last_calibration_test: null,
         last_maintenance: null,
         last_inspection: null,
+        next_pa_test: null,
+        next_calibration_test: null,
+        next_maintenance: null,
+        next_inspection: null,
+        
     });
 
     const [owner, setOwner] = useState<number>(props.plantEquipment.data.ownership_type);

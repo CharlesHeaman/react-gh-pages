@@ -19,8 +19,8 @@ const DateInput = (props: {
     const containerRef = useDetectClickOutside({ onTriggered: (event) => {
         const target = event.target;
         if (target) {
-            if (target.classList.value.includes('react-calendar__tile')) return;
-            const parent = target.parentElement;
+            if ((target as HTMLElement).classList.value.includes('react-calendar__tile')) return;
+            const parent = (target as HTMLElement).parentElement;
             if (parent) {
                 if (parent.classList.value.includes('react-calendar__tile')) return;
             }

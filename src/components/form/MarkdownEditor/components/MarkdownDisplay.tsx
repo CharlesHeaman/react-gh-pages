@@ -10,7 +10,7 @@ const MarkdownDisplay = (props: {
 }) => {
     return (
         <div className={`${styles['html-wrapper']} ${props.isPrint ? styles['print'] : ''}`}>
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw] as any}>
                 {props.markdown.length > 0 ?
                     props.markdown :
                     "Nothing to display."

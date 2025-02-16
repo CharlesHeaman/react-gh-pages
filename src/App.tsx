@@ -27,13 +27,13 @@ const App = () => {
 								{/* Protected Routes */}
 								<Route element={ <ProtectedRoutes /> }>
 									{routes.map((route, index) => (
-										<Route element={ <PermsProtectedRoute requiredPerms={route.permissions}/> }>
+										// <Route element={ <PermsProtectedRoute requiredPerms={route.permissions}/> }>
 											<Route 
 												path={route.path} 
 												element={route.component}
 												key={index}
 											/>
-										</Route>
+										// </Route>
 									))}
 								</Route>
 							</Routes>						

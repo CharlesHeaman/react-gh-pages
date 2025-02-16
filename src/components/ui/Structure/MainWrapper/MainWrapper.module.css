@@ -1,4 +1,0 @@
-#main_wrapper {
-    padding-top: var(--header-height);
-    padding-bottom: calc(var(--nav-height) + var(--normal-gap));
-}

@@ -12,7 +12,7 @@ const ActionMenu = (props: {
     actionItems: Array<ActionItem>,
 }) => {
     const containerRef = useDetectClickOutside({ onTriggered: () => setShowMenu(false) });
-    const inputRef = useRef(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     // Menu States
     const [showMenu, setShowMenu] = useState(false);

@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import FilterSelect, { FilterSelection } from '../../ui/FilterSelect/FilterSelect';
 import MarkdownDisplay from './components/MarkdownDisplay';
 import styles from './MarkdownEditor.module.css';
-import FilterSelect, { FilterSelection } from '../../ui/FilterSelect/FilterSelect';
-import IconButton from '../../ui/Buttons/IconButton/IconButton';
 
 const MarkdownEditor = (props: {
     content: string,

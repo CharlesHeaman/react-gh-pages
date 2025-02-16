@@ -29,7 +29,6 @@ const MoneyInput = (props: {
             <InputLabelWrap 
                 prefix='£'
                 maxWidth={props.maxWidth ? props.maxWidth : 150}
-                isBig={props.isBig}
             >
                 <input 
                     type='text'

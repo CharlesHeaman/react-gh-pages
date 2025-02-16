@@ -1,7 +1,7 @@
 {
-  "name": "my-app",
-  "version": "0.1.0",
   "homepage": "https://CharlesHeaman.github.io/react-gh-pages",
+  "name": "internal_client",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@react-google-maps/api": "^2.17.1",
@@ -31,15 +31,23 @@
     "remark-gfm": "^1.0.0",
     "serve-favicon": "^2.5.0",
     "sheetjs-style": "^0.15.8",
+    "typescript": "^5.0.3",
+    "vfile": "^6.0.3",
+    "vfile-message": "^4.0.2"
+  },
+  "overrides": {
     "typescript": "^5.0.3"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
+    "pull": "git pull https://github.com/CharlesHeaman/mitchells-admin-client",
+    "devStart": "nodemon --watch . -e ts,js --exec ts-node index.js",
+    "predeploy": "npm i && npm run build",
+    "deploy": "pm2 start ecosystem.config.js",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test": "jest --coverage --coverageDirectory='coverage'",
+    "watchTest": "jest --watch --onlyChanged --coverage --coverageDirectory='coverage'"
   },
   "eslintConfig": {
     "extends": [
