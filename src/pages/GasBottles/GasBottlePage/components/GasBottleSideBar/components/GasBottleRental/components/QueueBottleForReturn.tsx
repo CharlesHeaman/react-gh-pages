@@ -1,0 +1,95 @@
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react"
+import SubmitButton from "../../../../../../../../components/form/SubmitButton/SubmitButton"
+import WeightInput from "../../../../../../../../components/form/WeightInput/WeightInput"
+import GridItem from "../../../../../../../../components/ui/Containers/GridItem/GridItem"
+import InfoGrid from "../../../../../../../../components/ui/Containers/InfoGrid/InfoGrid"
+import WindowOverlay from "../../../../../../../../components/ui/Containers/WindowOverlay/WindowOverlay"
+import { GasBottleResponseData } from "../../../../../../../../types/gasBottle.types"
+import formatWeight from "../../../../../../../../utils/formatWeight"
+import putAPI from "../../../../../../../../utils/putAPI"
+import updateStateParams from "../../../../../../../../utils/updateStateParams/updateStateParams"
+import SetTareWeightButton from "./SetTareWeightButton"
+
+const QueueBottleForReturn = (props: {
+    gasBottleID: number,
+    show: boolean,
+    hideFunc: () => void,
+    current_gas_weight: number,
+    tare_weight: number,
+    setGasBottleData: Dispatch<SetStateAction<GasBottleResponseData | undefined>>,
+    isConsumable?: boolean,
+}) => {
+    // Form States
+    const [isUpdating, setIsUpdating] = useState(false);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [returnParams, setReturnParams] = useState({
+        current_bottle_weight: (props.current_gas_weight + props.tare_weight).toString(),
+    });
+    
+    const assignToEngineer = () => {
+        setHasSubmitted(true);
+        if (!formComplete) return;
+        putAPI(`gas_bottles/${props.gasBottleID}/queue_for_return`, {}, {
+            current_gas_weight: formatWeight(parseFloat(returnParams.current_bottle_weight) - props.tare_weight),
+        }, (response: any) => {
+            const gasBottleData: GasBottleResponseData = response.data;
+            props.setGasBottleData(gasBottleData);
+            props.hideFunc();
+        }, setIsUpdating)
+    }
+
+    const updateParams = (event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement> | ChangeEvent<HTMLTextAreaElement>) => {
+        updateStateParams(event, setReturnParams)
+    }
+
+    const formComplete = (
+        returnParams.current_bottle_weight.length > 0 
+    );
+    
+    return (
+        <WindowOverlay 
+            title={"Queue for Return"} 
+            maxWidth={300} 
+            show={props.show}
+            hideFunc={props.hideFunc} 
+            footer={<SubmitButton 
+                text={"Queue for Return"} 
+                iconFont="post_add"
+                disabled={hasSubmitted && !formComplete} 
+                color='dark-purple'
+                clickFunc={assignToEngineer}            
+                submitting={isUpdating}
+                submittingText="Queueing..."
+            />}
+        >
+            {!props.isConsumable ? 
+                <>
+                    <p>Record the current bottle weight to queue this bottle for return.</p>
+                    <InfoGrid>
+                        <GridItem title='Current Bottle Weight'>
+                            <WeightInput 
+                                name={"current_bottle_weight"} 
+                                value={returnParams.current_bottle_weight} 
+                                label={"Current bottle weight"} 
+                                updateFunc={updateParams} 
+                                min={props.tare_weight}
+                                tooLightText="Bottle weight cannot be less than tare weight"
+                                secondaryButton={<SetTareWeightButton clickFunc={() => setReturnParams((prevState: any) => {
+                                    return {
+                                        ...prevState, 
+                                        current_bottle_weight: props.tare_weight.toString()
+                                    }
+                                })}/>}
+                                hasSubmitted
+                                required
+                            />
+                        </GridItem>
+                    </InfoGrid>
+                </> :
+                <p>Queue this bottle for return?</p>
+            }
+        </WindowOverlay>
+    )
+}
+
+export default QueueBottleForReturn

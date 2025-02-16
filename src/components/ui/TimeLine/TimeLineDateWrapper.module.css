@@ -1,0 +1,30 @@
+.timeline-date-wrapper {
+    margin-left: var(--bigger-gap);
+    padding-left: var(--bigger-gap);
+    position: relative;
+}
+
+.timeline-date-wrapper::before {
+    content: '';
+    background-color: var(--high-contrast);
+    display: block;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    position: absolute;
+}
+
+.body {
+    padding: var(--normal-gap) 0px;
+}
+
+
+.icon {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translateX(-50%) translateY(-8px);
+    background-color: var(--body-bg);
+    padding: 5px;
+}

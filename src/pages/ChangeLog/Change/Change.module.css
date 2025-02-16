@@ -1,0 +1,28 @@
+.change {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: var(--big-gap);
+    border: 1px solid var(--low-contrast-bg);
+    border-radius: var(--container-border-radius);
+    padding: var(--large-gap);
+}
+
+.change:last-of-type {
+    margin-bottom: 0;
+}
+
+.change .header {
+    display: flex;
+    align-items: center;
+    gap: var(--normal-gap)
+}
+
+.change span {
+    align-self: start;
+}
+
+.label-wrapper {
+    display: flex;
+    gap: 8px
+}

@@ -1,0 +1,22 @@
+.dashboard-wrapper {
+    container-type: inline-size;
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    gap: var(--big-gap);
+}
+
+@container (min-width: 600px) {
+    .dashboard-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@container (min-width: 900px) {
+    .dashboard-content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

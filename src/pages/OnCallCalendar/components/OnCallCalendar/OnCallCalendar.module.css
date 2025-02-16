@@ -1,0 +1,18 @@
+.calendar-table {
+    table-layout: fixed;
+}
+
+.calendar-table tr td, 
+.calendar-table tr th {
+    vertical-align: top;
+    border-right: 1px solid var(--high-contrast-bg);
+}
+
+.calendar-table tr td:last-of-type, 
+.calendar-table tr th:last-of-type {
+    border-right: none;
+}
+
+.calendar-table .weekend {
+    color: rgb(var(--red-hl));
+}

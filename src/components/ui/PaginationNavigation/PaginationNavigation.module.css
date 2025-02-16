@@ -1,0 +1,69 @@
+.pagination-navigation {
+    margin-top: var(--normal-gap);
+}
+
+.per-page-count-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--normal-gap);
+}
+
+.per-page-count-wrapper p {
+    font-weight: 500;
+    font-size: var(--h3-size); 
+    white-space: nowrap;
+    align-items: center;
+    align-self: center;
+    color: var(--grey-text-color);
+}
+
+.per-page-count-wrapper span {
+    align-self: center;
+}
+
+.per-page-selection {
+    width: 60px;
+}
+
+.page-selection,
+.per-page-selection-wrapper,
+.count-wrapper
+ {
+    display: flex;
+    gap: var(--small-gap);
+    justify-content: center;    
+}
+
+.nav-item {
+    display: flex;
+    border: 1px solid transparent;
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: var(--text-hl-color);
+    align-items: center;
+    background-color: transparent;
+}
+
+.nav-item:not(.disabled):hover {
+    text-decoration: none;
+    border: 1px solid var(--text-hl-color);
+}
+
+.next-page {
+    padding-right: 0px;
+}
+
+.previous-page {
+    padding-left: 0px;
+}
+
+.disabled,
+.gap {
+    color: var(--light-grey-text-color);
+    cursor: default;
+}
+
+.active {
+    background-color: var(--text-hl-color);
+    color: white;
+}

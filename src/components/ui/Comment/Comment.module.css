@@ -1,0 +1,37 @@
+.comment-wrapper {
+    margin-bottom: var(--normal-gap);
+}
+
+.comment-wrapper:last-of-type {
+    margin-bottom: 0;
+}
+
+.comment-header {
+    background-color: rgba(var(--hl-color), 0.25);
+    border: 1px solid rgba(var(--hl-color), 0.5);
+    padding: var(--small-gap) var(--normal-gap);
+    border-top-left-radius: var(--container-border-radius);
+    border-top-right-radius: var(--container-border-radius);
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap)
+}
+
+.comment-body {
+    border: 1px solid rgba(var(--hl-color), 0.5);
+    border-top: none;
+    padding: var(--small-gap) var(--normal-gap);
+    border-bottom-left-radius: var(--container-border-radius);
+    border-bottom-right-radius: var(--container-border-radius);
+    text-align: left;
+}
+
+.remove-button {
+    margin-left: auto;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.remove-button:hover {
+    background-color: var(--contrast-bg);
+}

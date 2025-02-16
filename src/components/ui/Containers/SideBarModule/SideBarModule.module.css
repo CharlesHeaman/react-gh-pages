@@ -1,0 +1,14 @@
+.side-bar-module {
+    margin-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--low-contrast-bg);
+}
+
+.side-bar-module:last-of-type {
+    border-bottom: none;
+}
+
+.side-bar-module h3 {
+    margin-bottom: 8px;
+    font-weight: 700;
+}

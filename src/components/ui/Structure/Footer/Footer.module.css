@@ -1,0 +1,24 @@
+#footer {
+    border-top: 1px solid var(--high-contrast);
+    /* margin-top: 40px; */
+    padding-top: 64px;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+}
+
+#footer nav ul {
+    gap: 20px;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+}
+
+@media print and (orientation: portrait) {
+    #footer {
+        display: none;
+    }
+}   

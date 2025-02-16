@@ -1,0 +1,33 @@
+.checkbox-input {
+    display: flex;
+    gap: var(--small-gap);
+    width: 72px;
+    align-items: center;
+    padding: 4px 8px;
+    border: 1px solid;
+    border-radius: var(--input-border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    border-color: rgb(var(--red-hl));
+    color: rgb(var(--red-hl));
+    background-color: transparent;
+}
+
+.checkbox-input.disabled {
+    opacity: 0.5;
+}
+
+.checkbox-input:hover,
+.checkbox-input:focus-within {
+    background-color: rgba(var(--red-hl), 0.125);
+}
+
+.checkbox-input.checked {
+    border-color: rgb(var(--light-green-hl));
+    color: rgb(var(--light-green-hl));
+}
+
+.checkbox-input.checked:hover,
+.checkbox-input.checked:focus-within {
+    background-color: rgba(var(--light-green-hl), 0.125);
+}

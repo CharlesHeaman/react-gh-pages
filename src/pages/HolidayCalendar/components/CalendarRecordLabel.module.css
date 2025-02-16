@@ -1,0 +1,34 @@
+.on-call-engineer {
+    background-color: rgba(var(--label-color), 0.75);
+    color: white;
+    border-radius: 4px;
+    text-align: left;
+    padding: 4px 8px;
+    border: 1px solid rgb(var(--label-color));
+    z-index: 5;
+    cursor: pointer;
+}
+
+.on-call-engineer:hover, 
+.on-call-engineer.hover {
+    /* color: rgb(var(--label-color)); */
+    /* color: rgb(var(--label-color)); */
+    background-color: rgba(var(--label-color), 0.125);
+    color: rgba(var(--label-color));
+    text-decoration: none;
+
+}
+
+.text-wrapper {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    gap: 4px;
+}
+
+.spacer {
+    height: 31px;
+    width: 0px;
+}

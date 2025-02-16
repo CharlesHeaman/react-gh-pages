@@ -1,0 +1,15 @@
+.form-wizard-wrapper {
+    display: flex;
+    gap: var(--bigger-gap);
+    flex-direction: column;
+    position: relative;
+}
+
+.form-wizard-wrapper::before {
+    content: '';
+    border-left: 2px dashed var(--high-contrast-bg);
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+}

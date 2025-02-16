@@ -1,0 +1,105 @@
+.html-wrapper {
+    padding: var(--normal-gap);
+    background-color: white;
+}
+
+.html-wrapper.print {
+    padding: 0;
+    font-size: 0.75em;
+}
+
+.html-wrapper h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.html-wrapper h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.html-wrapper h3 { 
+    display: block;
+    font-size: 1.17em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.html-wrapper h4 {
+    display: block;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
+    font-size: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+ 
+.html-wrapper h5 {
+    display: block;
+    font-size: .67em;
+    margin-top: 2.33em;
+    margin-bottom: 2.33em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+.html-wrapper p {
+    margin: 1em 0;
+}
+
+.html-wrapper table {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-color: inherit;
+    vertical-align: inherit;
+    text-align: left;
+    font-weight: inherit;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    page-break-inside: avoid;
+    width: 100%;
+}
+
+.html-wrapper table td,
+.html-wrapper table th {
+    border: 1px solid black !important;
+    text-align: left;
+    page-break-inside: avoid;
+    padding: 5px;
+}
+
+.html-wrapper table th {
+    background-color: #3a89e445;
+    border-radius: 0;
+    font-weight: 600;
+    font-size: 0.85em;
+    text-align: center;
+}
+
+.html-wrapper ol {
+    white-space: normal;
+}
+
+.html-wrapper ol li {
+    margin: 5px
+}

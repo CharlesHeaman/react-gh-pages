@@ -1,0 +1,14 @@
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 75%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 90%);
+    }
+}
+
+.comparison-box {
+    height: 55px;
+    border-radius: var(--container-border-radius);
+    animation: skeleton-loading 1s linear infinite alternate;
+}

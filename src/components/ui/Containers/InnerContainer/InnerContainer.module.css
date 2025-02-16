@@ -1,0 +1,100 @@
+.inner-container {
+    background-color: var(--off-white-bg);
+    border: 1px solid var(--low-contrast-bg);
+    border-radius: var(--container-border-radius);
+    /* margin-bottom: var(--large-gap); */
+    overflow: hidden;
+}
+
+.inner-container .header {
+    display: flex;
+    transition: all var(--active-duration);
+    padding: var(--large-gap);
+}
+
+.inner-container.smallHeader .header {
+    padding:  var(--small-gap) var(--normal-gap) !important;
+}
+
+.inner-container > .header {
+    padding: var(--normal-gap) var(--large-gap);
+    border-bottom: 1px solid var(--high-contrast-bg);
+    transition: border-bottom-width 500ms;
+}
+
+.inner-container.collapsible:not(.skeleton) > .header:hover {
+    background-color: var(--contrast-bg);
+    cursor: pointer;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 75%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 90%);
+    }
+}
+
+.inner-container.skeleton .header {
+    height: 46px;
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.inner-container .title-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap);
+}
+
+.inner-container .title-wrapper h2,
+.inner-container .title-wrapper h3 {
+        color: var(--header-text-color);
+}
+
+.inner-container .flex {
+    display: flex;
+    align-items: center;
+    gap: var(--normal-gap);
+}
+
+.inner-container .body {
+    overflow-x: hidden;
+    padding: 0;
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 500ms;
+}
+
+.inner-container .body > div {
+    overflow: hidden;
+}
+
+.inner-container .body > div > div {
+    padding: var(--large-gap);
+}
+
+.inner-container.collapsed .body {
+    grid-template-rows: 0fr;
+    border-color: none;
+}
+
+.inner-container.collapsed .header {
+    border-bottom-width: 0px;
+}
+
+.collapse-icon {
+    height: 24px;
+    transition: transform 0.125s ease-in;
+}
+
+.inner-container.collapsed > .header > .collapse-icon {
+    transform: rotate(-90deg);
+}
+
+@media print and (orientation: portrait) {
+    .inner-container .body {
+        display: block;
+    }
+}

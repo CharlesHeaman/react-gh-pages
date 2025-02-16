@@ -1,0 +1,36 @@
+.list-item {
+    border-top: 1px solid var(--low-contrast-bg);
+    background-color: var(--off-white-bg);
+    transition: all var(--hover-transition);
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap);
+    padding: var(--normal-gap);
+    width: 100%;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+}
+
+.list-item.small-padding {
+    padding: 8px var(--normal-gap);
+}
+
+.list-item:first-of-type {
+    border-top: none;
+}
+
+.list-item:not(.disabled):not(.noClick):not(.header) {
+    cursor: pointer;
+}
+
+.list-item.disabled:not(.header) {
+    cursor: not-allowed;
+}
+
+.list-item:not(.disabled):hover {
+    background-color: var(--contrast-bg);
+}
+
+.list-item.disabled {
+    background-color: var(--low-contrast);
+}

@@ -1,0 +1,14 @@
+.percentage-wrapper {
+    display: block;
+    background-color: var(--contrast-bg);
+    width: auto;
+    height: 14px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.percentage-filled {
+    display: block;
+    height: 20px;
+    background-color: rgba(var(--light-green-hl), 1);
+}

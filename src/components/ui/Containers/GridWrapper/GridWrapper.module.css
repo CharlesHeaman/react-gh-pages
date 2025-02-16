@@ -1,0 +1,25 @@
+.grid-wrapper {
+    container-type: inline-size;
+}
+
+.grid-content {
+    border: 1px solid var(--low-contrast-bg);
+    border-radius: var(--container-border-radius);
+    margin-bottom: var(--large-gap);
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+@container (min-width: 700px) {
+    .grid-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@container (min-width: 1400px) {
+    .grid-content {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

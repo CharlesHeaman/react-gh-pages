@@ -1,0 +1,40 @@
+.on-call-engineer {
+    background-color: rgba(var(--label-color), 0.75);
+    color: white;
+    border-radius: 4px;
+    text-align: left;
+    padding: 4px 8px;
+    border: 1px solid rgb(var(--label-color));
+    position: absolute;
+    z-index: 5;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+}
+
+.on-call-engineer:hover, 
+.on-call-engineer.hover {
+    color: rgb(var(--label-color));
+    background-color: white;
+    text-decoration: none;
+
+}
+
+.text-wrapper {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    gap: 4px;
+}
+
+
+.spacer {
+    height: 34px;
+    width: 0px;
+}
+
+.spacer:first-of-type {
+    margin-top: 4px;
+}

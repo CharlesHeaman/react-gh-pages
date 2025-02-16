@@ -1,0 +1,7 @@
+.info-grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(var(--column-count), minmax(0, 1fr));
+    grid-gap: var(--large-gap);
+    grid-column-gap: var(--large-gap);
+}

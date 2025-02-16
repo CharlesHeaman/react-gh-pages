@@ -1,0 +1,15 @@
+.header-flex {
+    display: flex;
+    gap: var(--normal-gap);
+    align-items: stretch;
+    justify-content: stretch;
+    margin-bottom: 12px;
+    min-height: 38px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.header-flex a {
+    margin-left: 0;
+}

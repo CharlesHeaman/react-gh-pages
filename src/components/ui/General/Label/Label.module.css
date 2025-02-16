@@ -1,0 +1,39 @@
+.label {
+    padding: var(--small-button-padding);
+    font-size: 0.9em;
+    border-radius: var(--button-border-radius);
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap);
+    float: left;
+    white-space: nowrap;
+    font-weight: 500;
+    background-color: var(--hex-label-color-bg, rgba(var(--hl-color), var(--label-bg-opacity)));
+    color: var(--hex-label-color, rgb(var(--hl-color)));
+}
+
+.label.bold {
+    font-weight: 600;
+    font-size: 1em;
+}
+
+.label.massive-icon,
+.label.big-icon,
+.label.medium-icon {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.label.small {
+    padding-top: 0;
+}
+
+.label.no-background {
+    padding: 0;
+    background-color: transparent;
+}
+
+.label.circular {
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}

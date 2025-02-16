@@ -1,0 +1,11 @@
+.widget-wrapper {
+    background-color: var(--off-white-bg);
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+    padding: var(--large-gap);
+    cursor: pointer;
+}
+
+.widget-wrapper:hover {
+    background-color: var(--contrast-bg);
+}

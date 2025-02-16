@@ -1,0 +1,18 @@
+.activity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap);
+    z-index: 1;
+    padding: 3px 0;
+}
+
+.text-wrapper {
+    display: flex;
+    gap: var(--small-gap);
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.icon-wrapper {
+    background-color: var(--white-bg);
+}

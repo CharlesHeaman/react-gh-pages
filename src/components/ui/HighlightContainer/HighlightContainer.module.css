@@ -1,0 +1,6 @@
+.highlight-wrapper {
+    background-color: rgba(var(--hl-color), 0.125);
+    border: 1px solid rgba(var(--hl-color), 1);
+    padding: var(--normal-gap);
+    border-radius: var(--container-border-radius);
+}

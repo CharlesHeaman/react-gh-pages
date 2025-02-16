@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    gap: var(--normal-gap);
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    gap: var(--small-gap);
+    border-bottom: 1px solid var(--high-contrast);
+    padding-bottom: var(--normal-gap);
+}
+
+.body {
+    display: flex;
+    gap: var(--small-gap);
+    flex-direction: column;
+}
+
+.data-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--small-gap);
+}
+
+.body p {
+    font-size: 1em;
+}

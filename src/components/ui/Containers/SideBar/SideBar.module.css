@@ -1,0 +1,7 @@
+.side-bar {
+    padding-top: 0;
+    margin-left: var(--big-gap);
+    width: 250px;
+    flex-shrink: 1;
+    flex-grow: 0;
+}

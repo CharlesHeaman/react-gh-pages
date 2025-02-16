@@ -1,0 +1,50 @@
+.input-label-wrap {
+    display: flex;
+    border-radius: var(--input-border-radius);
+    border: 1px solid;
+    overflow: hidden;
+    border-color: rgb(var(--hl-color));
+}
+
+.input-label-wrap.disabled {
+    opacity: 0.5;
+}
+
+.input-label-wrap.no-color {
+    border-color: var(--low-contrast-bg);
+}
+
+.input-label-wrap:focus-within {
+    border: 1px solid var(--main-theme-color);
+}
+
+.input-label-wrap:hover {
+    border: 1px solid var(--very-high-contrast-bg);
+}
+
+.input-label-wrap input {
+    border: none;
+    padding: 0;
+    height: 29px;
+}
+
+.input-label-wrap input:hover {
+    border: none;
+}
+
+.input-label-wrap .prefix,
+.input-label-wrap .suffix {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: 1px 6px;
+    font-size: 1em;
+    white-space: nowrap;
+    background-color: var(--off-white-bg);
+}
+
+.input-label-wrap .prefix span,
+.input-label-wrap .suffix span {
+    display: flex;
+    align-items: center;
+}

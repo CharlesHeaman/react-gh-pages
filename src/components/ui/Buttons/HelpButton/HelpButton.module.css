@@ -1,0 +1,10 @@
+.help-button {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    opacity: 0.5;
+}
+
+.help-button svg {
+    filter: var(--dark-blue-filter);
+}

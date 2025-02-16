@@ -1,0 +1,71 @@
+import { Dispatch, SetStateAction, useState } from "react";
+import SubmitButton from "../../../components/form/SubmitButton/SubmitButton";
+import ImageUpload from "../../../components/form/Upload/ImageUpload";
+import SideBarButton from "../../../components/ui/Buttons/SideBarButton/SideBarButton";
+import SideBarModule from "../../../components/ui/Containers/SideBarModule/SideBarModule";
+import WindowOverlay from "../../../components/ui/Containers/WindowOverlay/WindowOverlay";
+import { TemplateHeaderResponseData } from "../../../types/templateHeader.types";
+import postFileAPI from "../../../utils/postFileAPI";
+
+const TemplateHeaderActions = (props: {
+    templateHeaderID: number,
+    hasImage: boolean,
+    setTemplateHeaderData: Dispatch<SetStateAction<TemplateHeaderResponseData | undefined>>,
+    setIsEditMode: () => void,
+}) => {
+    const [showUpload, setShowUpload] = useState(false);
+    const [isUploading, setIsUploading] = useState(false);
+    const [uploadData, setUploadData] = useState<FileList>();
+
+    const uploadImage = () => {
+        const formData = new FormData() 
+        uploadData && formData.append('upload', uploadData[0]);
+        postFileAPI(`template_headers/${props.templateHeaderID}/upload_image`, {}, formData, (response: any) => {
+            const templateHeaderData = response.data;
+            props.setTemplateHeaderData(templateHeaderData)
+            setShowUpload(false);
+        }, setIsUploading);
+    }
+
+    return (
+        <>
+            <SideBarModule title="Actions">
+                <SideBarButton 
+                    text="Edit Template Header" 
+                    color="orange" 
+                    iconFont="edit" 
+                    clickEvent={props.setIsEditMode}
+                    />
+                <SideBarButton 
+                    text="Upload Image" 
+                    iconFont="image" 
+                    color={props.hasImage ? undefined : 'light-green'}
+                    clickEvent={() => setShowUpload(true)}
+                />
+            </SideBarModule> 
+
+            <WindowOverlay
+                title='Upload Image'
+                show={showUpload}
+                hideFunc={() => setShowUpload(false)}
+                maxWidth={300}
+                footer={<SubmitButton
+                    text="Upload Image"
+                    submitting={isUploading}
+                    submittingText='Uploading...'
+                    iconFont="upload"
+                    clickFunc={uploadImage}
+                    disabled={!(uploadData && uploadData.length > 0)}
+                />}
+            >
+                <p>This will replace the current image, if there is one.</p>
+                <ImageUpload 
+                    setter={setUploadData}
+                />
+            </WindowOverlay>
+
+        </>
+    )
+}
+
+export default TemplateHeaderActions

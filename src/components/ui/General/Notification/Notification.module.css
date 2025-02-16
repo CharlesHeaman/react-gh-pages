@@ -1,0 +1,38 @@
+.notification {
+    --wrap-margin: 15px;
+    --hide-position: -60px;
+
+    background-color: var(--white-bg);
+    padding: var(--normal-gap);
+    box-shadow: var(--strong-box-shadow);
+    border-radius: 5px;
+    flex-shrink: 1;
+    font-size: 1em;
+    font-weight: 500;
+    animation: movein 0.25s ease forwards, moveout 0.25s 5.5s ease forwards;
+    position: fixed; 
+    left: var(--wrap-margin);
+    right: var(--wrap-margin);
+    bottom: var(--wrap-margin);
+    position: fixed;
+    z-index: 9999;
+    max-width: var(--max-mobile-width);
+}
+
+.notification.positive {
+    border-left: 7px solid rgb(var(--light-green-hl));
+}
+
+.notification.negative {
+    border-left: 7px solid rgb(var(--red-hl));
+}
+
+@keyframes movein {
+    from { bottom: var(--hide-position); opacity: 0; }
+    to   { bottom: var(--wrap-margin); opacity: 1; }
+}
+
+@keyframes moveout {
+    from { bottom: var(--wrap-margin); opacity: 1; }
+    to   { bottom: var(--hide-position); opacity: 0; }
+}

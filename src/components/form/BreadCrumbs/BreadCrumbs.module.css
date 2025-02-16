@@ -1,0 +1,11 @@
+.bread-crumbs {
+    display: flex;
+    gap: var(--small-gap);
+    padding: var(--normal-gap);
+    padding-top: 0;
+    font-size: 1.25em;
+}
+
+span.active {
+    font-weight: 600;
+}

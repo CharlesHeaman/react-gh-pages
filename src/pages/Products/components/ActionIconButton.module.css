@@ -1,0 +1,16 @@
+.action-icon-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+    border-radius: var(--input-border-radius);
+    cursor: pointer;
+    max-width: 100%;
+    color: inherit;
+    color: rgb(var(--hl-color));
+    background-color: rgba(var(--hl-color), var(--button-bg-opacity));
+    user-select: none;
+}
+
+.action-icon-button:hover {
+    background-color: rgba(var(--hl-color), var(--button-bg-hover-opacity));
+}

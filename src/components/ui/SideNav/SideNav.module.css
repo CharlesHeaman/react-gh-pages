@@ -1,0 +1,33 @@
+.side-nav {
+    position: fixed;
+    top: 52px;
+    bottom: 0px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 64px;
+    background-color: var(--off-white-bg);
+    border-right: 1px solid var(--low-contrast-bg);
+    scrollbar-width: none;
+}
+
+.side-nav nav {
+    width: 64px;
+    padding: 8px 12px;
+}
+
+.side-nav.open,
+.side-nav.open nav {
+    width: 260px;
+}
+
+.side-nav nav hr {
+    margin: var(--small-gap) 8px;
+}
+
+.side-nav:not(.open) h4 {
+    display: none;
+}
+
+.side-nav nav details summary {
+    width: 100%;
+}

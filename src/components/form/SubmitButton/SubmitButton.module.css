@@ -1,0 +1,42 @@
+.submit-button {
+    padding: 6px 8px;
+    border: none;
+    border-radius: var(--button-border-radius);
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--small-gap);
+    font-size: 0.9em;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--light-text-color);
+    transition: var(--active-duration);
+    background-color: rgba(var(--hl-color), 1);
+    white-space: nowrap;
+}
+
+.submit-button.small-padding {
+    padding: 2px;
+}
+
+.submit-button.left {
+    margin-left: 0;
+}
+
+.submit-button.no-margin {
+    margin: 0;
+}
+
+.submit-button:hover {
+    background-color: rgba(var(--hl-color), 0.75);
+}
+
+.submit-button:active {
+    opacity: var(--active-opacity);
+}
+
+.submit-button:disabled {
+    background-color: rgba(var(--hl-color), 0.5);
+    cursor: default;
+}

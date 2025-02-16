@@ -1,0 +1,10 @@
+.list-wrapper {
+    border: 1px solid var(--low-contrast-bg);
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+    margin-bottom: var(--large-gap);
+}
+
+.list-wrapper.no-margin {
+    margin-bottom: 0px;
+}

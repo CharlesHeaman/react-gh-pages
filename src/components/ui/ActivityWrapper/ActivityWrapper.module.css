@@ -1,0 +1,18 @@
+.activity-wrapper {
+    display: flex;
+    gap: var(--large-gap);
+    flex-direction: column;
+    padding: 10px 10px;
+    border-top: 1px solid var(--high-contrast);
+    border-bottom: 3px solid var(--high-contrast);
+    position: relative;
+}
+
+.activity-wrapper::before {
+    content: '';
+    border-left: 2px solid var(--high-contrast);
+    position: absolute;
+    left: 26px;
+    top: 0;
+    bottom: 0;
+}

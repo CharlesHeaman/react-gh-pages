@@ -1,0 +1,12 @@
+.copy-button {
+    background-color: transparent;
+    border: none;
+}
+
+.copy-button:hover {
+    color: var(--text-hl-color)
+}
+
+.copy-button.clicked {
+    color: rgb(var(--light-green-hl))
+}

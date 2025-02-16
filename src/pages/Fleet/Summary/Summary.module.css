@@ -1,0 +1,21 @@
+.page-wrapper {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--white-bg);
+}
+
+.snapshot-wrapper {
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: var(--large-gap);
+}
+
+.map-wrapper {
+    display: flex;
+    flex-direction: column
+}

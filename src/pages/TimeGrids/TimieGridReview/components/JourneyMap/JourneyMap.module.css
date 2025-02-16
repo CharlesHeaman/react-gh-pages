@@ -1,0 +1,32 @@
+.page-wrapper {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    background-color: var(--white-bg);
+    width: 100%;
+    flex-direction: row;
+    gap: var(--large-gap);
+}
+
+.snapshot-wrapper {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 1800px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+    .snapshot-wrapper {
+        max-height: 45vh;
+        border-bottom: 1px solid var(--high-contrast);
+        padding-bottom: var(--normal-gap);
+    }
+}
+
+.map-wrapper {
+    flex-grow: 1;
+    display: flex;
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+    min-height: 45vh;
+}

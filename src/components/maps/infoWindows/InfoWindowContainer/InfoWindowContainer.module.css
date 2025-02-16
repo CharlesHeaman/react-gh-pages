@@ -1,0 +1,28 @@
+.wrapper {
+    display: flex;
+    gap: var(--normal-gap);
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    gap: var(--small-gap);
+    align-items: center;
+}
+
+.header p {
+    font-size: 1em;
+}
+
+.body {
+    display: flex;
+    gap: var(--small-gap);
+    flex-direction: column;
+    border-top: 1px solid var(--high-contrast);
+    padding-top: var(--normal-gap);
+}
+
+.body p {
+    font-size: 1em;
+    line-height: 24px;
+}

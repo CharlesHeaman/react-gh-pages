@@ -1,0 +1,49 @@
+.markdown-editor-wrapper {
+    border: 1px solid var(--low-contrast-bg);
+    border-radius: var(--container-border-radius);
+    overflow: hidden;
+}
+
+.header {
+    border-bottom: 1px solid var(--low-contrast-bg);
+    padding: var(--normal-gap);
+    display: flex;
+    justify-content: space-between;
+}
+
+.header nav {
+    display: flex;
+}
+
+.formatter-wrapper {
+    display: flex;
+    gap: var(--big-gap);
+    padding-bottom: var(--normal-gap);
+}
+
+.button-group {
+    display: flex;
+    gap: 4px;
+}
+
+.formatter-button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--low-contrast-bg);
+    border-radius: var(--button-border-radius);
+}
+
+.formatter-button:hover {
+    background-color: var(--text-hl-color);
+    color: white;
+}
+
+.body textarea {
+    border: none;
+    padding: var(--normal-gap);
+    margin-top: 0;
+    font-family: monospace;;
+}

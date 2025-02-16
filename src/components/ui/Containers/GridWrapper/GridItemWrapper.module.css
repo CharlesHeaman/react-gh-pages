@@ -1,0 +1,21 @@
+.grid-item {
+    border-bottom: 1px solid var(--low-contrast-bg);
+    border-right: 1px solid var(--low-contrast-bg);
+    /* border-right: 1px solid var(--low-contrast-bg); */
+    /* border-bottom: 1px solid var(--low-contrast-bg); */
+    background-color: var(--off-white-bg);
+    transition: all var(--hover-transition);
+    display: flex;
+    align-items: top;
+    gap: var(--small-gap);
+    padding: var(--large-gap);
+    width: 100%;
+    overflow-x: hidden;
+    flex-wrap: wrap;
+    /* margin-bottom: -1px;
+    margin-right: -1px; */
+}
+
+.grid-item:hover {
+    background-color: var(--contrast-bg);
+}

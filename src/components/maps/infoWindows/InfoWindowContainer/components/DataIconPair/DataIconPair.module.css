@@ -1,0 +1,5 @@
+.data-icon {
+    display: flex;
+    gap: var(--small-gap);
+    align-items: center;
+}

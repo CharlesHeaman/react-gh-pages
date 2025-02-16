@@ -1,0 +1,79 @@
+.navigation {
+    background-color: var(--off-white-bg);
+    border-bottom: 1px solid var(--low-contrast-bg);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    height: 52px;
+    position: sticky;
+    left: 0;
+    right: 0;
+    top: 0;
+    width: 100%;
+    overflow-x: overlay;
+    scrollbar-width: none;
+    overflow-y: hidden;
+}
+
+.navigation nav ul {
+    display: flex;
+    flex-direction: row;
+    /* padding: var(--small-gap); */
+    padding: 0;
+    gap: var(--normal-gap);
+    margin: 0px;
+}
+
+.navigation nav li {
+    list-style: none;
+    position: relative;
+}
+
+.navigation nav li a {
+    color: var(--grey-text-color);
+    font-weight: 600;
+    border-radius: var(--button-border-radius);
+    text-decoration: none;
+    padding: 0 var(--small-gap);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    border: 1px solid var(--low-contrast-bg);
+}
+
+.navigation nav li a::before {
+    content: "";
+    height: 100%;
+    left: 50%;
+    min-height: 52px;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 100%;
+}
+
+.navigation nav li a:hover {
+    background-color: var(--contrast-bg);
+}
+
+.navigation nav li a.focus {
+    color: var(--main-text-color);
+    font-weight: 600;
+    border: 1px solid var(--text-hl-color);
+
+}
+
+/* .navigation nav li a.focus::after {
+    content: "";
+    background: var(--text-hl-color);
+    height: 2px;
+    position: absolute;
+    width: 100%;
+    z-index: 9999999999;
+    transform: translate(-12px, 22px);
+} */

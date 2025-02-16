@@ -1,0 +1,26 @@
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 75%);
+    }
+    100% {
+        background-color: hsl(200, 20%, 90%);
+    }
+}
+
+.table-skeleton tbody td,
+.table-skeleton thead th,
+.table-skeleton tfoot th {
+    height: 29px;
+    animation: skeleton-loading 1s linear infinite alternate;
+    border: none !important;
+}
+
+.table-skeleton thead th {
+    border-top-left-radius: var(--container-border-radius);
+    border-top-right-radius: var(--container-border-radius);
+}
+
+.table-skeleton tfoot th {
+    border-bottom-left-radius: var(--container-border-radius);
+    border-bottom-right-radius: var(--container-border-radius);
+}
