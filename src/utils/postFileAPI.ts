@@ -1,0 +1,31 @@
+import Axios from 'axios';
+import Cookies from 'js-cookie';
+import { Dispatch, SetStateAction } from 'react';
+
+const postFileAPI = (
+    apiEndpoint: string,
+	params: any,
+	body: any,
+	responseFunction: (response: any) => void,
+	loadingSetter: Dispatch<SetStateAction<boolean>>
+) => {
+    loadingSetter(true);
+	Axios.post(`${process.env.REACT_APP_API_URL}/api/${apiEndpoint}`, body, {
+        headers: {
+            "Content-Type": 'multipart/form-data',
+            "Authorization": `Bearer ${Cookies.get('accessToken')}`
+        },
+        params: params
+    }).then((response) => {
+        responseFunction(response);
+        loadingSetter(false);
+    }).catch((error) => {
+        if (error.response.status === 403 || error.response.status === 401) {
+            let redirect = window.location.hash.replace("#", "");
+            window.history.replaceState({ redirect: redirect}, '', '/#/login');
+            window.location.reload();
+        }
+    });
+}
+
+export default postFileAPI
