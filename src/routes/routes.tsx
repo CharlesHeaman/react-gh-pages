@@ -6,7 +6,6 @@ import PlantEquipmentListPage from "../pages/Assets/AssetListPage/PlantEquipment
 import PlantEquipmentPage from "../pages/Assets/AssetPage/PlantEquipmentPage";
 import CreatePlantEquipmentPage from "../pages/Assets/CreatePlantEquipment/CreatePlantEquipmentPage";
 import Changelog from "../pages/ChangeLog/Changelog";
-import TestStatusPage from "../pages/ChangeLog/TestStatusPage";
 import CostCentreListPage from "../pages/CostCentres/CostCentreListPage/CostCentreListPage";
 import CostCentrePage from "../pages/CostCentres/CostCentrePage/CostCentrePage";
 import ContactPage from "../pages/CustomerAdmin/Contacts/ContactPage/ContactPage";
@@ -150,8 +149,6 @@ const routes = [
     { path: "/changelog", name: "Changelog", component: <Changelog/>, permissions: [] },
     // Migration
     { path: "/migration", name: "Automatic Migration", component: <MigrationPage/>, permissions: { system: 1 } },
-    // Test Statuses
-    { path: "/test_statuses", name: "Test Statuses", component: <TestStatusPage/>, permissions: { system: 1 } },
     // System
     { path: "/system", name: "System Administration", component: <SystemAdministrationPage/>, permissions: { system: 1 } },
         // Departments 

@@ -42,7 +42,7 @@ const PageLayout = (props: {
             <Header 
                 toggleNav={() => setIsNavOpen(!isNavOpen)}
             >
-                <Routes>
+                {/* <Routes>
                     {routes.map((topRoute, topIndex) => (
                         <Route 
                             path={topRoute.path} 
@@ -58,7 +58,7 @@ const PageLayout = (props: {
                             key={topIndex}
                         />
                     ))}
-                </Routes>
+                </Routes> */}
             </Header>
             <div className={`
                 ${styles['body-wrapper']}

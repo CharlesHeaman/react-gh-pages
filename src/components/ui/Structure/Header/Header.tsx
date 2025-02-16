@@ -17,20 +17,14 @@ const Header = (props: {
                 >
                     <span className="material-icons">menu</span>
                 </button>
-                <Link to={`/`}><img style={{ aspectRatio: 1, height: '32px'}} src={`${process.env.PUBLIC_URL}/mitchells.png`}/></Link>
+                <Link to={`/`}><img style={{ aspectRatio: 1, height: '32px'}} src={`${process.env.PUBLIC_URL}/logo-Placeholder.jpg`}/></Link>
                 <nav>
                     <ul>
                         {props.children}
                     </ul>
                 </nav>
-                <SubmitButton
-                    iconFont="priority_high"
-                    text="Not Live Data"
-                    color="red"
-                    clickFunc={() => null}
-                />
                 <button
-                    className='nav-toggle'
+                    className='nav-toggle logout'
                     onClick={() => navigate('login')}
                 >
                     <span className="material-icons">logout</span>
