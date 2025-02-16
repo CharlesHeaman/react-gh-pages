@@ -49,7 +49,7 @@ const LoginPage = () => {
             </Helmet>
             <div className={styles['login-container']}>
                 <div className={styles['image-wrapper']}>
-                    <img src={`${process.env.PUBLIC_URL}/mitchells.png`}/>
+                    <img src={`${process.env.PUBLIC_URL}/logo-Placeholder.jpg`}/>
                 </div>
                 <h1 style={{ marginBottom: 'var(--bigger-gap)'}}>Admin Login</h1>
                 <InnerContainer>

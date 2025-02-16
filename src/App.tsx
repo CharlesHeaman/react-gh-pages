@@ -25,7 +25,7 @@ const App = () => {
 									/>
 								))}
 								{/* Protected Routes */}
-								<Route element={ <ProtectedRoutes /> }>
+								{/* <Route element={ <ProtectedRoutes /> }> */}
 									{routes.map((route, index) => (
 										// <Route element={ <PermsProtectedRoute requiredPerms={route.permissions}/> }>
 											<Route 
@@ -35,7 +35,7 @@ const App = () => {
 											/>
 										// </Route>
 									))}
-								</Route>
+								{/* </Route> */}
 							</Routes>						
 						</PageLayout>
 					</AppProvider>
