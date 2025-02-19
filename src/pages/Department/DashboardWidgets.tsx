@@ -1,15 +1,5 @@
-import { useEffect, useState } from "react";
 import PermsProtectedComponent from "../../components/PermsProtectedComponent";
 import DashboardWrapper from "../../components/ui/Containers/DashboardWrapper/DashboardWrapper";
-import { DescriptionOfWorksCollectionResponse } from "../../types/descriptionOfWorks.types";
-import { GasBottleCollectionResponse } from "../../types/gasBottle.types";
-import { PostCompletionChangeRequestCollectionResponse } from "../../types/postCompletionChangeRequets.types";
-import { QuoteCollectionResponse } from "../../types/quote.types";
-import { TimegridCollectionResponse } from "../../types/timegrid.types";
-import { UserCollectionResponse } from "../../types/user.types";
-import { VehicleCollectionResponse } from "../../types/vehicles.types";
-import getAPI from "../../utils/getAPI";
-import getMonthRelativeDate from "../../utils/getMonthRelativeDate";
 import ApprovalTicketInvoiceRequestWidget from "./components/ApprovalTicketInvoiceRequestWidget";
 import CreditCheckCustomerWidget from "./components/CreditCheckCustomerWidget";
 import ExpiredContractWidget from "./components/ExpiredContractWidget";

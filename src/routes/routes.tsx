@@ -1,3 +1,4 @@
+import { permission } from "process";
 import CalibrationPage from "../pages/Assets/AssetListPage/CalibrationPage";
 import InspectionPage from "../pages/Assets/AssetListPage/InspectionPage";
 import MaintenancePage from "../pages/Assets/AssetListPage/MaintenancePage";
@@ -28,7 +29,6 @@ import SitePage from "../pages/CustomerAdmin/Sites/SitePage/SitePage";
 import DepartmentDashboard from "../pages/Department/DepartmentDashboard";
 import GeneralDashboard from "../pages/Department/GeneralDashboard";
 import TicketListPage from "../pages/DepartmentTickets/TicketListPage";
-import MigrationPage from "../pages/Development/MigrationPage";
 import EngineerDiaryDayPage from "../pages/EngineerDiary/EngineerDiaryDayPage";
 import EngineerDiaryMonthPage from "../pages/EngineerDiary/EngineerDiaryMonthPage";
 import EngineerDiaryWeekPage from "../pages/EngineerDiary/EngineerDiaryWeekPage";
@@ -109,9 +109,6 @@ import SupplierContactsListPage from "../pages/SupplierContacts/SupplierContacts
 import CreateSupplierManufacturerPage from "../pages/SuppliersManufacturers/CreateSupplierManufacturer/CreateSupplierManufacturerPage";
 import SupplierManufacturersListPage from "../pages/SuppliersManufacturers/SupplierManufacturerListPage/SuppliersManufacturersListPage";
 import SupplierManufacturerPage from "../pages/SuppliersManufacturers/SupplierManufacturerPage/SupplierManufacturerPage";
-import CreateDepartmentPage from "../pages/System/Departments/CreateDepartmentPage/CreateDepartmentPage";
-import DepartmentPage from "../pages/System/Departments/DepartmentPage";
-import DepartmentsListPage from "../pages/System/Departments/DepartmentsListPage";
 import SystemPage from "../pages/System/System/SystemPage";
 import SystemAdministrationPage from "../pages/System/SystemAdministrationPage";
 import CreateUserPage from "../pages/System/Users/CreateUserPage/CreateUserPage";
@@ -135,6 +132,7 @@ import TimegridPage from "../pages/TimeGrids/TimieGridReview/components/Timegrid
 import CreateVehiclePage from "../pages/Vehicles/CreateVehicle/CreateVehiclePage";
 import VehicleListPage from "../pages/Vehicles/VehicleListPage/VehicleListPage";
 import VehiclePage from "../pages/Vehicles/VehiclePage/VehiclePage";
+import ReportsPage from "../pages/Reports/ReportsPage";
 
 const nonProtectedRoutes = [
     { path: "/login", name: "Login", component: <LoginPage/>, permissions: [] },
@@ -147,83 +145,82 @@ const routes = [
     { path: "/", name: "Dashboard", component: <GeneralDashboard/>, permissions: [] },
     // Changelog
     { path: "/changelog", name: "Changelog", component: <Changelog/>, permissions: [] },
-    // Migration
-    { path: "/migration", name: "Automatic Migration", component: <MigrationPage/>, permissions: { system: 1 } },
     // System
     { path: "/system", name: "System Administration", component: <SystemAdministrationPage/>, permissions: { system: 1 } },
-        // Departments 
-        { path: "/system/departments", name: "Departments", component: <DepartmentsListPage/>, permissions: { system: 1 } },
-        { path: "/system/departments/create", name: "Create", component: <CreateDepartmentPage/>, permissions: { system: 2 } },
-        { path: "/system/departments/:departmentID", name: ":departmentID", component: <DepartmentPage/>, permissions: { system: 1 } },
-        // Users 
-        { path: "/system/users", name: "Users", component: <UserListPage/>, permissions: { system: 1 } },
-        { path: "/system/users/create", name: "Create", component: <CreateUserPage/>, permissions: { system: 2 } },
-        { path: "/system/users/:username", name: ":username", component: <UserPage/>, permissions: { system: 1 } },
-        // Cost Centres 
-        { path: "/system/cost_centres", name: "Cost Centres", component: <CostCentreListPage/>, permissions: { system: 1 } },
-        { path: "/system/cost_centres/:costCentreID", name: ":costCentreID", component: <CostCentrePage/>, permissions: { system: 1 } },
-        // Equipment Types 
-        { path: "/system/equipment_types", name: "Equipment Types", component: <EquipmentTypesListPage/>, permissions: { system: 1 } },
-        { path: "/system/equipment_types/:equipmentTypeID", name: ":equipmentTypeID", component: <EquipmentTypePage/>, permissions: { system: 1 } },
-        // Additional Time Activities
-        { path: "/system/additional_time_activities", name: "Additional Time Activities", component: <AdditionalTimeActivityListPage/>, permissions: { system: 1 } },
-        { path: "/system/additional_time_activities/:additionalTimeActivityID", name: ":additionalTimeActivityID", component: <AdditionalTimeActivityPage/>, permissions: { system: 1 } },
-        // Invoice Types
-        { path: "/system/invoice_types", name: "Invoice Types", component: <InvoiceTypeListPage/>, permissions: { system: 1 } },
-        { path: "/system/invoice_types/:invoiceTypeID", name: ":invoiceTypeID", component: <InvoiceTypePage/>, permissions: { system: 1 } },
-        // Product Categories
-        { path: "/system/product_categories", name: "Product Categories", component: <ProductCategoriesListPage/>, permissions: { system: 1 } },
-        { path: "/system/product_categories/:productCategoryID", name: ":productCategoryID", component: <ProductCategoryPage/>, permissions: { system: 1 } },
-        // Refrigerants
-        { path: "/system/refrigerants", name: "Refrigerants, Gas/Air", component: <RefrigerantListPage/>, permissions: { system: 1 } },
-        { path: "/system/refrigerants/:refrigerantID", name: ":refrigerantID", component: <RefrigerantPage/>, permissions: { system: 1 } },
-        // Plant/Tools Types
-        { path: "/system/plant_equipment_types", name: "Plant/Tools Types", component: <PlantEquipmentTypesListPage/>, permissions: { system: 1 } },
-        { path: "/system/plant_equipment_types/:plantEquipmentTypeID", name: ":plantEquipmentTypeID", component: <PlantEquipmentTypePage/>, permissions: { system: 1 } },
-        // Templates 
-        { path: "/system/templates", name: "Templates", component: <TemplateAdministration/>, permissions: { system: 1 } },
-            // Headers
-            { path: "/system/templates/headers", name: "Headers", component: <TemplateHeadersListPage/>, permissions: { system: 1 } },
-            { path: "/system/templates/headers/:templateHeaderID", name: ":templateHeaderID", component: <TemplateHeaderPage/>, permissions: { system: 1 } },
-            // Footers
-            { path: "/system/templates/footers", name: "Footers", component: <TemplateFootersListPage/>, permissions: { system: 1 } },
-            { path: "/system/templates/footers/:templateFooterID", name: ":templateFooterID", component: <TemplateFooterPage/>, permissions: { system: 1 } },
-            // Method Statement 
-            { path: "/system/templates/method_statements", name: "Method Statements", component: <MethodStatementTemplatesListPage/>, permissions: { system: 1 } },
-            { path: "/system/templates/method_statements/:methodStatementTemplateID", name: ":methodStatementTemplateID", component: <MethodStatementTemplatePage/>, permissions: { system: 1 } },
-            // Risk Assessment
-            { path: "/system/templates/risk_assessments", name: "Risk Assessments", component: <RiskAssessmentTemplatesListPage/>, permissions: { system: 1 } },
-            { path: "/system/templates/risk_assessments/:riskAssessmentTemplateID", name: ":riskAssessmentTemplateID", component: <RiskAssessmentTemplatePage/>, permissions: { system: 1 } },
-        // System Admin
-        { path: "/system/administration", name: "Administration", component: <SystemPage/>, permissions: { system: 1 } },
+    { path: "/reports", name: "Reports", component: <ReportsPage/>, permissions: [] },
+    //     // Departments 
+    //     { path: "/system/departments", name: "Departments", component: <DepartmentsListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/departments/create", name: "Create", component: <CreateDepartmentPage/>, permissions: { system: 2 } },
+    //     { path: "/system/departments/:departmentID", name: ":departmentID", component: <DepartmentPage/>, permissions: { system: 1 } },
+    //     // Users 
+    //     { path: "/system/users", name: "Users", component: <UserListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/users/create", name: "Create", component: <CreateUserPage/>, permissions: { system: 2 } },
+    //     { path: "/system/users/:username", name: ":username", component: <UserPage/>, permissions: { system: 1 } },
+    //     // Cost Centres 
+    //     { path: "/system/cost_centres", name: "Cost Centres", component: <CostCentreListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/cost_centres/:costCentreID", name: ":costCentreID", component: <CostCentrePage/>, permissions: { system: 1 } },
+    //     // Equipment Types 
+    //     { path: "/system/equipment_types", name: "Equipment Types", component: <EquipmentTypesListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/equipment_types/:equipmentTypeID", name: ":equipmentTypeID", component: <EquipmentTypePage/>, permissions: { system: 1 } },
+    //     // Additional Time Activities
+    //     { path: "/system/additional_time_activities", name: "Additional Time Activities", component: <AdditionalTimeActivityListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/additional_time_activities/:additionalTimeActivityID", name: ":additionalTimeActivityID", component: <AdditionalTimeActivityPage/>, permissions: { system: 1 } },
+    //     // Invoice Types
+    //     { path: "/system/invoice_types", name: "Invoice Types", component: <InvoiceTypeListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/invoice_types/:invoiceTypeID", name: ":invoiceTypeID", component: <InvoiceTypePage/>, permissions: { system: 1 } },
+    //     // Product Categories
+    //     { path: "/system/product_categories", name: "Product Categories", component: <ProductCategoriesListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/product_categories/:productCategoryID", name: ":productCategoryID", component: <ProductCategoryPage/>, permissions: { system: 1 } },
+    //     // Refrigerants
+    //     { path: "/system/refrigerants", name: "Refrigerants, Gas/Air", component: <RefrigerantListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/refrigerants/:refrigerantID", name: ":refrigerantID", component: <RefrigerantPage/>, permissions: { system: 1 } },
+    //     // Plant/Tools Types
+    //     { path: "/system/plant_equipment_types", name: "Plant/Tools Types", component: <PlantEquipmentTypesListPage/>, permissions: { system: 1 } },
+    //     { path: "/system/plant_equipment_types/:plantEquipmentTypeID", name: ":plantEquipmentTypeID", component: <PlantEquipmentTypePage/>, permissions: { system: 1 } },
+    //     // Templates 
+    //     { path: "/system/templates", name: "Templates", component: <TemplateAdministration/>, permissions: { system: 1 } },
+    //         // Headers
+    //         { path: "/system/templates/headers", name: "Headers", component: <TemplateHeadersListPage/>, permissions: { system: 1 } },
+    //         { path: "/system/templates/headers/:templateHeaderID", name: ":templateHeaderID", component: <TemplateHeaderPage/>, permissions: { system: 1 } },
+    //         // Footers
+    //         { path: "/system/templates/footers", name: "Footers", component: <TemplateFootersListPage/>, permissions: { system: 1 } },
+    //         { path: "/system/templates/footers/:templateFooterID", name: ":templateFooterID", component: <TemplateFooterPage/>, permissions: { system: 1 } },
+    //         // Method Statement 
+    //         { path: "/system/templates/method_statements", name: "Method Statements", component: <MethodStatementTemplatesListPage/>, permissions: { system: 1 } },
+    //         { path: "/system/templates/method_statements/:methodStatementTemplateID", name: ":methodStatementTemplateID", component: <MethodStatementTemplatePage/>, permissions: { system: 1 } },
+    //         // Risk Assessment
+    //         { path: "/system/templates/risk_assessments", name: "Risk Assessments", component: <RiskAssessmentTemplatesListPage/>, permissions: { system: 1 } },
+    //         { path: "/system/templates/risk_assessments/:riskAssessmentTemplateID", name: ":riskAssessmentTemplateID", component: <RiskAssessmentTemplatePage/>, permissions: { system: 1 } },
+    //     // System Admin
+    //     { path: "/system/administration", name: "Administration", component: <SystemPage/>, permissions: { system: 1 } },
         
             // Vehicles
-    { path: "/vehicles", name: "Vehicles", component: <VehicleListPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/vehicles/create", name: "Create", component: <CreateVehiclePage/>, permissions: { engineer_assets: 2 } },
-    { path: "/vehicles/:vehicleID", name: ":vehicleID", component: <VehiclePage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/vehicles", name: "Vehicles", component: <VehicleListPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/vehicles/create", name: "Create", component: <CreateVehiclePage/>, permissions: { engineer_assets: 2 } },
+    // { path: "/vehicles/:vehicleID", name: ":vehicleID", component: <VehiclePage/>, permissions: { engineer_assets: 1 } },
     // Plant and Equipment
-    { path: "/plant_and_equipment", name: "Plant/Tools", component: <PlantEquipmentListPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/plant_and_equipment/create", name: "Create", component: <CreatePlantEquipmentPage/>, permissions: { engineer_assets: 2 } },
-    { path: "/plant_and_equipment/:plantEquipmentCode", name: ":plantEquipmentCode", component: <PlantEquipmentPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/plant_and_equipment/pa_testing", name: "PA Testing", component: <PATestingPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/plant_and_equipment/calibration", name: "Calibration", component: <CalibrationPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/plant_and_equipment/inspection", name: "Inspection", component: <InspectionPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/plant_and_equipment/maintenance", name: "Maintenance", component: <MaintenancePage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/plant_and_equipment", name: "Plant/Tools", component: <PlantEquipmentListPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/plant_and_equipment/create", name: "Create", component: <CreatePlantEquipmentPage/>, permissions: { engineer_assets: 2 } },
+    // { path: "/plant_and_equipment/:plantEquipmentCode", name: ":plantEquipmentCode", component: <PlantEquipmentPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/plant_and_equipment/pa_testing", name: "PA Testing", component: <PATestingPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/plant_and_equipment/calibration", name: "Calibration", component: <CalibrationPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/plant_and_equipment/inspection", name: "Inspection", component: <InspectionPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/plant_and_equipment/maintenance", name: "Maintenance", component: <MaintenancePage/>, permissions: { engineer_assets: 1 } },
     // Gas Bottles
-    { path: "/refrigerant_bottles", name: "Refrigerant Bottles", component: <RefrigerantBottlesListPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/refrigerant_bottles/create", name: "Create", component: <CreateBottlePage/>, permissions: { engineer_assets: 2 } },
-    { path: "/refrigerant_bottles/process_return", name: "Return", component: <ReturnBottlesPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/refrigerant_bottles/queue_return", name: "Queue for Return", component: <QueueBottlesForReturnPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/refrigerant_bottles/returns/:referenceNumber", name: ":referenceNumber", component: <ReturnsNotePage/>, permissions: { engineer_assets: 1 } },
-    { path: "/refrigerant_bottles/create_collection", name: "Create Collection", component: <CreateGasBottleCollectionPage/>, permissions: { engineer_assets: 2 } },
-    { path: "/refrigerant_bottles/:gasBottleCode", name: ":gasBottleCode", component: <GasBottlePage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/refrigerant_bottles", name: "Refrigerant Bottles", component: <RefrigerantBottlesListPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/refrigerant_bottles/create", name: "Create", component: <CreateBottlePage/>, permissions: { engineer_assets: 2 } },
+    // { path: "/refrigerant_bottles/process_return", name: "Return", component: <ReturnBottlesPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/refrigerant_bottles/queue_return", name: "Queue for Return", component: <QueueBottlesForReturnPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/refrigerant_bottles/returns/:referenceNumber", name: ":referenceNumber", component: <ReturnsNotePage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/refrigerant_bottles/create_collection", name: "Create Collection", component: <CreateGasBottleCollectionPage/>, permissions: { engineer_assets: 2 } },
+    // { path: "/refrigerant_bottles/:gasBottleCode", name: ":gasBottleCode", component: <GasBottlePage/>, permissions: { engineer_assets: 1 } },
     // Gas/Air Bottles
-    { path: "/gas_air_bottles", name: "Gas/Air Bottles", component: <GasAirBottlesListPage/>, permissions: { engineer_assets: 1 } },
-    { path: "/gas_air_bottles/create", name: "Create", component: <CreateBottlePage isConsumable/>, permissions: { engineer_assets: 2 } },
-    { path: "/gas_air_bottles/process_return", name: "Return", component: <ReturnBottlesPage isConsumable/>, permissions: { engineer_assets: 1 } },
-    { path: "/gas_air_bottles/queue_return", name: "Queue for Return", component: <QueueBottlesForReturnPage isConsumable/>, permissions: { engineer_assets: 1 } },
-    { path: "/gas_air_bottles/returns/:referenceNumber", name: ":referenceNumber", component: <ReturnsNotePage isConsumable/>, permissions: { engineer_assets: 1 } },
-    { path: "/gas_air_bottles/:gasBottleCode", name: ":gasBottleCode", component: <GasBottlePage isConsumable/>, permissions: { engineer_assets: 1 } },
+    // { path: "/gas_air_bottles", name: "Gas/Air Bottles", component: <GasAirBottlesListPage/>, permissions: { engineer_assets: 1 } },
+    // { path: "/gas_air_bottles/create", name: "Create", component: <CreateBottlePage isConsumable/>, permissions: { engineer_assets: 2 } },
+    // { path: "/gas_air_bottles/process_return", name: "Return", component: <ReturnBottlesPage isConsumable/>, permissions: { engineer_assets: 1 } },
+    // { path: "/gas_air_bottles/queue_return", name: "Queue for Return", component: <QueueBottlesForReturnPage isConsumable/>, permissions: { engineer_assets: 1 } },
+    // { path: "/gas_air_bottles/returns/:referenceNumber", name: ":referenceNumber", component: <ReturnsNotePage isConsumable/>, permissions: { engineer_assets: 1 } },
+    // { path: "/gas_air_bottles/:gasBottleCode", name: ":gasBottleCode", component: <GasBottlePage isConsumable/>, permissions: { engineer_assets: 1 } },
     // Customers
     { path: "/customers", name: "Customers", component: <CustomerListPage/>, permissions: { customers: 1 } },
     { path: "/customers/create", name: "Create", component: <CreateCustomerPage/>, permissions: { customers: 2 } },
@@ -274,34 +271,34 @@ const routes = [
     { path: "/ticket_invoice_requests", name: "Invoice Requests", component: <TicketInvoiceRequestListPage/>, permissions: { accounts: 1 } },
     { path: "/ticket_invoice_requests/:ticketInvoiceRequestID", name: ":ticketInvoiceRequestID", component: <TicketInvoiceRequestPage/>, permissions: { accounts: 1 } },
     // Job Invoice Requests 
-    { path: "/job_invoice_requests", name: "Invoice Requests", component: <JobInvoiceRequestListPage/>, permissions: { accounts: 1 } },
-    { path: "/job_invoice_requests/:jobInvoiceRequestID", name: ":jobInvoiceRequestID", component: <JobInvoiceRequestPage/>, permissions: { accounts: 1 } },
+    // { path: "/job_invoice_requests", name: "Invoice Requests", component: <JobInvoiceRequestListPage/>, permissions: { accounts: 1 } },
+    // { path: "/job_invoice_requests/:jobInvoiceRequestID", name: ":jobInvoiceRequestID", component: <JobInvoiceRequestPage/>, permissions: { accounts: 1 } },
     // Employee Calendar 
     { path: "/employee_calendar", name: "Employee Calendar", component: <HolidayCalendarPage/>, permissions: { calendars: 1 } },
     // On-call Calendar 
     // Van Replenishment Requests
-    { path: "/van_stock_requests", name: "Van Replenishment Requests", component: <VanStockRequestsListPage/>, permissions: { engineer_data: 1 } },
-    { path: "/van_stock_requests/:vanStockRequestID", name: ":vanStockRequestID", component: <VanStockRequestPage/>, permissions: { engineer_data: 1 } },    
+    // { path: "/van_stock_requests", name: "Van Replenishment Requests", component: <VanStockRequestsListPage/>, permissions: { engineer_data: 1 } },
+    // { path: "/van_stock_requests/:vanStockRequestID", name: ":vanStockRequestID", component: <VanStockRequestPage/>, permissions: { engineer_data: 1 } },    
     // Engineer Resources
-    { path: "/engineer_resources", name: "Engineer Resources", component: <EngineerResourcesPage/>, permissions: { engineer_data: 1 } },
-    { path: "/engineer_resources/schedule_of_works", name: "Schedule of Works", component: <ScheduleOfWorksListPage/>, permissions: { engineer_data: 1 } },
-    { path: "/engineer_resources/manuals", name: "Manuals", component: <ManualsListPage/>, permissions: { engineer_data: 1 } },
+    // { path: "/engineer_resources", name: "Engineer Resources", component: <EngineerResourcesPage/>, permissions: { engineer_data: 1 } },
+    // { path: "/engineer_resources/schedule_of_works", name: "Schedule of Works", component: <ScheduleOfWorksListPage/>, permissions: { engineer_data: 1 } },
+    // { path: "/engineer_resources/manuals", name: "Manuals", component: <ManualsListPage/>, permissions: { engineer_data: 1 } },
     // RAMS 
     // { path: "/rams", name: "Risk Assessment Method Statements", component: <RiskAssessmentMethodStatementListPage/>, permissions: { tickets: 1 } },
     // { path: "/rams/create", name: "Create RAMS", component: <CreateRAMSPage/>, permissions: { tickets: 2 } },
     // ISO
-    { path: "/iso", name: "ISO Admin", component: <ISOAdministration/>, permissions: { iso: 1 } },
-        // Non-conformance Reports
-        { path: "/iso/non_conformance_reports", name: "Non-conformance Reports", component: <NonConformanceReportsListPage/>, permissions: { iso: 1 } },
-        { path: "/iso/non_conformance_reports/:nonConformanceReportID", name: ":nonConformanceReportID", component: <NonConformanceReportPage/>, permissions: { iso: 1 } },
-        // RAMS
-        { path: "/iso/rams_admin", name: "RAMS Administration", component: <RAMSAdministration/>, permissions: { iso: 1 } },
-            // Risk Assessments
-            { path: "/iso/rams_admin/risk_assessments", name: "Risk Assessments", component: <RiskAssessmentListPage/>, permissions: { iso: 1 } },
-            { path: "/iso/rams_admin/risk_assessments/:riskAssessmentID", name: ":riskAssessmentID", component: <RiskAssessmentPage/>, permissions: { iso: 1 } },
-            // Description of Works
-            { path: "/iso/rams_admin/description_of_works", name: "Description of Works", component: <DescriptionOfWorksListPage/>, permissions: { iso: 1 } },
-            { path: "/iso/rams_admin/description_of_works/:descriptionOfWorksID", name: ":descriptionOfWorksID", component: <DescriptionOfWorksPage/>, permissions: { iso: 1 } },
+    // { path: "/iso", name: "ISO Admin", component: <ISOAdministration/>, permissions: { iso: 1 } },
+    //     // Non-conformance Reports
+    //     { path: "/iso/non_conformance_reports", name: "Non-conformance Reports", component: <NonConformanceReportsListPage/>, permissions: { iso: 1 } },
+    //     { path: "/iso/non_conformance_reports/:nonConformanceReportID", name: ":nonConformanceReportID", component: <NonConformanceReportPage/>, permissions: { iso: 1 } },
+    //     // RAMS
+    //     { path: "/iso/rams_admin", name: "RAMS Administration", component: <RAMSAdministration/>, permissions: { iso: 1 } },
+    //         // Risk Assessments
+    //         { path: "/iso/rams_admin/risk_assessments", name: "Risk Assessments", component: <RiskAssessmentListPage/>, permissions: { iso: 1 } },
+    //         { path: "/iso/rams_admin/risk_assessments/:riskAssessmentID", name: ":riskAssessmentID", component: <RiskAssessmentPage/>, permissions: { iso: 1 } },
+    //         // Description of Works
+    //         { path: "/iso/rams_admin/description_of_works", name: "Description of Works", component: <DescriptionOfWorksListPage/>, permissions: { iso: 1 } },
+    //         { path: "/iso/rams_admin/description_of_works/:descriptionOfWorksID", name: ":descriptionOfWorksID", component: <DescriptionOfWorksPage/>, permissions: { iso: 1 } },
     // Departments  
     { path: "/:departmentName", name: ":departmentName", component: <DepartmentDashboard/>, permissions: [] },    
         // Tickets

@@ -1,12 +1,12 @@
 import OuterContainer from "../../components/ui/Containers/OuterContainer/OuterContainer";
 import UnderDevelopment from "../../components/ui/UnderDevelopment/UnderDevelopment";
 
-const SystemAdministrationPage = () => {
-    const description = 'Configure system settings and manage system resources.'
+const ReportsPage = () => {
+    const description = 'Select a report to run.'
 
     return (
         <OuterContainer
-            title='System Administration'
+            title='Reports'
             description={description}
             maxWidth={1600}
             noBorder
@@ -20,4 +20,4 @@ const SystemAdministrationPage = () => {
     )
 }
 
-export default SystemAdministrationPage
+export default ReportsPage

@@ -36,10 +36,9 @@ const TicketInvoiceRequestListPage = ()  => {
 
     return (
         <>
-            <InvoiceRequestNavigation location="tickets"/>
             <OuterContainer
-                title='Ticket Invoice Requests'
-                description="Process invoice requests raised for tickets."
+                title='Invoice Requests'
+                description="Process invoice requests raised for bookings."
                 maxWidth={1600}
                 noBorder
             >
